@@ -87,6 +87,8 @@ function validateForm()
                     $("#idSpanResult").html("There is some technichal problem, Please try again later.");
                     $("#idSpanResult").css("background-color" , "red");
                 }
+                $('html, body').scrollTop($(document).height());
+                return true;
             }
             else
             {
