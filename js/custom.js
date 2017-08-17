@@ -72,19 +72,20 @@ function validateForm()
     {
         if (ValidEmail(varEmail , "EMAIL" , ""))
         {
-            if (validAlphaNumeric(varMsg , "MESSAGE" , ""))
+            if (validMessage(varMsg , "MESSAGE" , ""))
             {
                 if (sendMail(varFname , varEmail , varMsg))
                 {
-                    alert("Your message is successfully submited. \n I will contact you soon.");
+                    $("#idSpanResult").html("Your message is successfully submited. \n I will contact you soon.");
+                    $("#idSpanResult").css("background-color" , "green");
                     varFname.value = "";
                     varEmail.value = "";
                     varMsg.value = "";
-                    $("#idHome").click();
                 }
                 else
                 {
-                    alert("There is some technichal problem, Please try again later.");
+                    $("#idSpanResult").html("There is some technichal problem, Please try again later.");
+                    $("#idSpanResult").css("background-color" , "red");
                 }
             }
             else
@@ -101,4 +102,14 @@ function validateForm()
     {
         return false;
     }
+}
+function fnClearValue()
+{
+    var varFname = document.getElementById("fullname");
+    var varEmail = document.getElementById("email");
+    var varMsg = document.getElementById("message");
+    $("#idSpanResult").html("");
+    varFname.value = "";
+    varEmail.value = "";
+    varMsg.value = "";
 }

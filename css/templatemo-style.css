@@ -628,3 +628,9 @@ header .social-icon li a
     height: 40px;
     padding: 10px 10px 10px 10px;
 }
+#idSpanResult
+{
+    color: white;
+    font-weight: bolder;
+    text-align: center !important;
+}

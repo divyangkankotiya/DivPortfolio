@@ -26,33 +26,6 @@ function validLetters(paraValue , caption , customMsg)
     }
 }
 /*
- alphanumeric : Validation for Alpha Numeric values.
- paraValue : pass value to be checked
- caption : pass caption to be shown in alert
- customMsg : pass mesage if you want to alert custom message otherwise leave it blank like ""
- */
-function validAlphaNumeric(paraValue , caption , customMsg)
-{
-    var pattern = /^[0-9a-zA-Z\s]+$/;
-    if (paraValue.value.match(pattern))
-    {
-        return true;
-    }
-    else
-    {
-        if (customMsg.trim().length > 0)
-        {
-            alert(customMsg);
-        }
-        else
-        {
-            alert("Please enter alphabet characters only for '" + caption + "'.");
-        }
-        paraValue.focus();
-        return false;
-    }
-}
-/*
  ValidateEmail : Validation for Email Address.
  paraValue : pass value to be checked
  caption : pass caption to be shown in alert
@@ -78,4 +51,28 @@ function ValidEmail(paraValue , caption , customMsg)
         paraValue.focus();
         return false;
     }
+}
+
+/*
+ validMessage : Validation for Email Address.
+ paraValue : pass value to be checked
+ caption : pass caption to be shown in alert
+ customMsg : pass mesage if you want to alert custom message otherwise leave it blank like ""
+ */
+function validMessage(paraValue , caption , customMsg)
+{
+    if (paraValue.value.trim().length <= 0)
+    {
+        if (customMsg.trim().length > 0)
+        {
+            alert(customMsg);
+        }
+        else
+        {
+            alert("Please enter valid value for '" + caption + "'");
+        }
+        paraValue.focus();
+        return false;
+    }
+    return true;
 }
