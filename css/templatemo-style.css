@@ -633,4 +633,7 @@ header .social-icon li a
     color: white;
     font-weight: bolder;
     text-align: center !important;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid gray;
 }
