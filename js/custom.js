@@ -19,7 +19,7 @@ $(function ()
     });
     /* end typed element */
 
-    /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)    
+    /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)
      ---------------------------------------------------------------------------------*/
     $('.templatemo-nav').singlePageNav({
         offset : $(".templatemo-nav").height() ,
@@ -59,6 +59,46 @@ $(function ()
 /* start preloader */
 $(window).load(function ()
 {
-    $('.preloader').fadeOut(1000); // set duration in brackets    
+    $('.preloader').fadeOut(1000); // set duration in brackets
 });
 /* end preloader */
+function validateForm()
+{
+    // Form Validation
+    var varFname = document.getElementById("fullname");
+    var varEmail = document.getElementById("email");
+    var varMsg = document.getElementById("message");
+    if (validLetters(varFname , "FULL NAME" , ""))
+    {
+        if (ValidEmail(varEmail , "EMAIL" , ""))
+        {
+            if (validAlphaNumeric(varMsg , "MESSAGE" , ""))
+            {
+                if (sendMail(varFname , varEmail , varMsg))
+                {
+                    alert("Your message is successfully submited. \n I will contact you soon.");
+                    varFname.value = "";
+                    varEmail.value = "";
+                    varMsg.value = "";
+                    $("#idHome").click();
+                }
+                else
+                {
+                    alert("There is some technichal problem, Please try again later.");
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
