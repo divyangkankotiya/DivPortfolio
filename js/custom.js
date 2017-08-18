@@ -68,11 +68,11 @@ function validateForm()
     var varFname = document.getElementById("fullname");
     var varEmail = document.getElementById("email");
     var varMsg = document.getElementById("message");
-    if (validLetters(varFname , "FULL NAME" , ""))
+    if (validLetters(varFname))
     {
-        if (ValidEmail(varEmail , "EMAIL" , ""))
+        if (ValidEmail(varEmail))
         {
-            if (validMessage(varMsg , "MESSAGE" , ""))
+            if (validMsg(varMsg))
             {
                 if (sendMail(varFname , varEmail , varMsg))
                 {
@@ -81,6 +81,9 @@ function validateForm()
                     varFname.value = "";
                     varEmail.value = "";
                     varMsg.value = "";
+                    $("#idSpanName").html("");
+                    $("#idSpanEmail").html("");
+                    $("#idSpanMessage").html("");
                 }
                 else
                 {
@@ -92,16 +95,19 @@ function validateForm()
             }
             else
             {
+                $("#idSpanMessage").html("<b>Please enter value for 'MESSAGE'.</b>");
                 return false;
             }
         }
         else
         {
+            $("#idSpanEmail").html("<b>Please enter valid value for 'EMAIL'.</b>");
             return false;
         }
     }
     else
     {
+        $("#idSpanName").html("<b>Please enter valid value for 'FULL NAME'.</b>");
         return false;
     }
 }
@@ -114,4 +120,11 @@ function fnClearValue()
     varFname.value = "";
     varEmail.value = "";
     varMsg.value = "";
+    $("#idSpanName").html("");
+    $("#idSpanEmail").html("");
+    $("#idSpanMessage").html("");
+}
+function clrValue(id)
+{
+     $("#"+id).html("");
 }

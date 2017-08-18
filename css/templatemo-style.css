@@ -635,3 +635,7 @@ header .social-icon li a
     text-align: center !important;
     padding: 8px;
 }
+.clsRed
+{
+    color: red !important;
+}
